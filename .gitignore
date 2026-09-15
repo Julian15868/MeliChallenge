@@ -1,0 +1,22 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secretos
+.env
+
+# Datos pesados (opcional, descomentar si no querés versionarlos)
+# data/*.csv
+
+# Sistema
+.DS_Store
+Thumbs.db
