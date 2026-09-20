@@ -27,7 +27,8 @@ Resolución del challenge técnico de Data Scientist: detección de sesiones de 
 **Enfoque A — Reglas y etiquetado:**
 - EDA por sesión (volumen de requests, paths únicos, dispositivos únicos, IPs, user agents, intervalos entre requests).
 - Reglas de anomalía sobre percentiles de la población de sesiones (alto request_count, alto request_rate, muchos dispositivos únicos, intervalos muy bajos y consistentes, etc.) que producen `anomaly_score`, `strong_signal` e `is_scraping`.
-- Generación de reportes en lenguaje natural vía API de Gemini para 3 sesiones (`session_1307`, `session_1042`, `session_1115`) — ver `reporte_sesiones_sospechosas_consolidado.pdf`.
+- Generación de reportes en lenguaje natural vía API de Gemini para 3 sesiones (`session_1307`, `session_1042`, `session_1115`) — ver `reporte_sesiones_sospechosas_consolidado.pdf` que esta en MeliChallenge/notebook/Problema 1- Deteccion de scrapers/
+.
 
 **Enfoque B — Modelo de Machine Learning:**
 - `RandomForestClassifier` (PySpark ML) entrenado sobre las features de sesión, usando como etiqueta el `is_scraping` del Enfoque A.
