@@ -33,7 +33,7 @@ Resolución del challenge técnico de Data Scientist: detección de sesiones de 
 - `RandomForestClassifier` (PySpark ML) entrenado sobre las features de sesión, usando como etiqueta el `is_scraping` del Enfoque A.
 - Desbalance de clases resuelto con ponderación de clases (`weightCol`), con discusión en el notebook de las alternativas consideradas (oversampling/SMOTE, undersampling, ajuste de umbral) y por qué se descartaron.
 - Métricas: F1-score, precision y recall (justificadas en el notebook frente a por qué accuracy no es confiable con clases desbalanceadas), más un ranking de importancia de variables (`featureImportances`) como chequeo cruzado contra las reglas del Enfoque A.
-- ⚠️ Nota abierta: hay dos celdas que redefinen `is_scraping` (una combina `anomaly_score` y la regla de actividad rápida, la otra la pisa usando solo esta última) — señalado con una nota en el propio notebook para resolver antes de la entrega final.
+- Definición final de `is_scraping`: unión de la regla original (`anomaly_score >= 2` **y** `strong_signal >= 1`) con `rule_fast_high_activity`, una regla de refuerzo que captura sesiones con actividad alta y cadencia sospechosa que no llegan a ser extremas (p99) en ninguna métrica aislada.
 
 ## Problema 2: Vulnerabilidades Debian
 
@@ -60,6 +60,5 @@ Abrir y correr los notebooks en `notebook/`.
 ## Decisiones y mejoras a futuro
 
 - Las reglas del Enfoque A son heurísticas basadas en percentiles de la misma ventana de tráfico (no hay historial previo de las sesiones, según el enunciado); una mejora futura sería contrastarlas contra ventanas históricas para reducir falsos positivos.
-- Resolver la ambigüedad en la definición final de `is_scraping` (ver nota en el Enfoque B).
 - Reportar matriz de confusión y métricas específicas de la clase "scraping" (no solo promediadas) para el modelo de ML.
 - Validación cruzada (`CrossValidator`) para elegir hiperparámetros del Random Forest en vez de valores fijos.
