@@ -1,6 +1,6 @@
 # Challenge Data Scientist – Antiscraping Security (Mercado Libre)
 
-Resolución del challenge técnico de Data Scientist: detección de sesiones de scraping en tráfico de un marketplace, y scraping + clasificación de vulnerabilidades de Debian.
+Resolución del challenge técnico de Data Scientist: detección de sesiones de scraping en tráfico de Meli, y scraping + clasificación de vulnerabilidades de Debian.
 
 ## Estructura
 
